@@ -1,0 +1,5 @@
+*.pem
+*.key
+/git.pem
+/deploy.ps1
+/scripts/deploy-remote.sh
