@@ -443,6 +443,8 @@ h2 span { display: block; }
 .pass-label { font-size: 12px; font-weight: 650; letter-spacing: .04em; color: color-mix(in srgb, currentColor 68%, transparent); }
 .pass-main h2 { margin-top: 14px; font-size: clamp(32px, 3.5vw, 48px); line-height: 1.22; }
 .download-actions { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin-top: 32px; }
+.boarding-pass .btn--ghost { border-color: color-mix(in srgb, currentColor 26%, transparent); color: inherit; }
+.boarding-pass .btn--ghost:hover { border-color: currentColor; color: inherit; }
 .download-actions .text-link { color: #18263A; }
 :root[data-theme="dark"] .download-actions .text-link { color: var(--ink); }
 .pass-stub {
