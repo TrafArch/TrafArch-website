@@ -202,6 +202,23 @@
     ["正在读取…", "正在讀取…", "Reading…"],
     ["正在读取", "正在讀取", "Reading"],
     ["演示读取完成。实际读卡请在 Android 应用中进行。", "示範讀取完成。實際讀卡請在 Android 應用程式中進行。", "Demo read complete. Use the Android app to read a real card."],
+    ["应用界面预览", "應用程式介面預覽", "App screen preview"],
+    ["读取", "讀取", "Read"],
+    ["行程", "行程", "Trips"],
+    ["卡包", "卡包", "Wallet"],
+    ["专家", "專家", "Expert"],
+    ["界面截图来自 TrafArch 2.x，数据为内置样例。", "介面截圖來自 TrafArch 2.x，資料為內建範例。", "Screens are from TrafArch 2.x using built-in sample data."],
+    ["行程 · 票据视图", "行程 · 票據檢視", "Trips · Ticket view"],
+    ["卡片 · 读取快照", "卡片 · 讀取快照", "Card · Read snapshot"],
+    ["TrafArch 读取结果界面", "TrafArch 讀取結果介面", "TrafArch read result screen"],
+    ["TrafArch 行程界面", "TrafArch 行程介面", "TrafArch trips screen"],
+    ["TrafArch 卡包界面", "TrafArch 卡包介面", "TrafArch wallet screen"],
+    ["TrafArch 专家分析界面", "TrafArch 專家分析介面", "TrafArch expert analysis screen"],
+    ["TrafArch 行程票据界面", "TrafArch 行程票據介面", "TrafArch trip ticket screen"],
+    ["TrafArch 卡片信息界面", "TrafArch 卡片資訊介面", "TrafArch card details screen"],
+    ["源代码", "原始碼", "Source code"],
+    ["首页", "首頁", "Home"],
+    ["点按屏幕底部导航，切换界面", "點按螢幕底部導覽，切換介面", "Tap the navigation at the bottom of the screen to switch views."],
   ];
 
   var locales = ["zh-CN", "zh-Hant", "en-US"];
@@ -252,11 +269,12 @@
     var walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
       var node = walker.currentNode;
-      if (node.parentElement.closest("script, style, .icon, #language-menu")) continue;
+      if (node.parentElement.closest("script, style, .icon, #language-menu, .tapp")) continue;
       var source = node.textContent.trim();
       if (catalog.has(source)) bindings.push({ node: node, source: source, original: node.textContent });
     }
     document.querySelectorAll("[aria-label], [placeholder], meta[content], img[alt]").forEach(function (element) {
+      if (element.closest(".tapp")) return;
       ["aria-label", "placeholder", "content", "alt"].forEach(function (attribute) {
         var source = element.getAttribute(attribute);
         if (catalog.has(source)) bindings.push({ node: element, attribute: attribute, source: source });
