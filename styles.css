@@ -157,7 +157,8 @@ svg.icon { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-wid
 .signal-dot { width: 6px; height: 6px; background: var(--tertiary); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 4px color-mix(in srgb, var(--tertiary) 9%, transparent); }
 h1 { font-size: clamp(38px, 4vw, 58px); line-height: 1.24; font-weight: 700; letter-spacing: -.045em; }
 .hero-description { font-size: 16px; color: var(--on-surface-variant); line-height: 1.95; margin-top: 26px; }
-.hero-buttons { display: flex; gap: 12px; margin-top: 32px; }
+.hero-buttons { display: flex; align-items: flex-start; gap: 12px; margin-top: 32px; }
+.hero-download-actions { display: flex; flex-direction: column; align-items: stretch; gap: 10px; }
 .hero-note { max-width: 420px; font-size: 10px; color: var(--outline); margin-top: 25px; }
 .demo-stage { position: relative; padding: 0 0 34px; }
 .demo-orbit { position: absolute; width: 640px; height: 640px; border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent); border-radius: 50%; left: 50%; top: 46%; transform: translate(-50%, -50%); pointer-events: none; }
@@ -344,6 +345,7 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
 .download-section { display: flex; justify-content: space-between; align-items: center; gap: 40px; border-block: 1px solid var(--outline-variant); padding-block: 55px; }
 .download-section h2 { font-size: 34px; }
 .download-actions { display: flex; flex-direction: column; align-items: center; gap: 18px; padding-right: 30px; }
+.download-button-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
 .download-actions .inline-link { font-size: 11px; color: var(--secondary); }
 .friends { display: flex; align-items: center; justify-content: center; gap: 38px; padding-block: 33px; }
 .friends > span { font-size: 11px; color: var(--outline); }
@@ -561,7 +563,7 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
   .eyebrow { font-size: 10px; margin-bottom: 22px; }
   h1 { font-size: clamp(37px, 8.7vw, 54px); line-height: 1.24; }
   .hero-description { font-size: 14px; margin-top: 21px; line-height: 1.9; }
-  .hero-buttons { flex-wrap: nowrap; margin-top: 25px; gap: 10px; }
+  .hero-buttons { flex-wrap: wrap; margin-top: 25px; gap: 10px; }
   .hero-buttons .button-large { font-size: 11px; height: 44px; padding-inline: 16px; gap: 6px; }
   .hero-buttons .icon { font-size: 17px; }
   .hero-note { font-size: 9px; margin-top: 18px; }
@@ -634,6 +636,7 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
   .download-section { flex-direction: column; align-items: flex-start; gap: 27px; padding-block: 38px; }
   .download-section h2 { font-size: 29px; }
   .download-actions { align-items: flex-start; padding: 0; gap: 14px; }
+  .download-button-row { justify-content: flex-start; gap: 10px; }
   .download-actions .button-large { height: 44px; font-size: 12px; }
   .friends { flex-wrap: wrap; gap: 16px 26px; padding-block: 28px; justify-content: flex-start; }
   .friends > span { width: 100%; font-size: 10px; }

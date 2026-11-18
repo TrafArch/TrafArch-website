@@ -29,6 +29,7 @@
     ["余额、行程，还有沿途的点滴。", "餘額、行程，還有沿途的點滴。", "Your balance, your trips, and the moments along the way. "],
     ["TrafArch 帮你读懂交通卡，留存自己的出行记录。", "TrafArch 幫你讀懂交通卡，留存自己的出行紀錄。", "TrafArch helps you read your transit cards and keep a record of your travels."],
     ["下载 Android 应用", "下載 Android 應用程式", "Download for Android"],
+    ["加入 QQ 群", "加入 QQ 群", "Join our QQ group"],
     ["了解使用方式", "瞭解使用方式", "See how it works"],
     ["仅提供信息读取与展示，不提供充值、支付或修改卡片功能。", "僅提供資訊讀取與顯示，不提供儲值、付款或修改卡片功能。", "Reads and displays information only. Top-ups, payments, and card modifications are not supported."],
     ["TrafArch 交互演示", "TrafArch 互動示範", "TrafArch interactive demo"],
