@@ -357,7 +357,9 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
 .page-footer > p { font-size: 10px; color: var(--outline); }
 .page-footer nav { margin-left: auto; display: flex; gap: 21px; font-size: 10px; color: var(--secondary); }
 .page-footer nav a:hover { color: var(--primary); }
-.page-footer > span { font-size: 10px; color: var(--outline); }
+.page-footer-legal { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; color: var(--outline); white-space: nowrap; }
+.page-footer-legal .filing-record { color: inherit; }
+.page-footer-legal .filing-record:hover { color: var(--primary); }
 
 /* Privacy policies share the site's colors, navigation and typography. */
 .policy-header-caption { margin-right: auto; border-left: 1px solid var(--outline-variant); padding-left: 24px; color: var(--secondary); font-size: 12px; }
@@ -636,7 +638,7 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
   .page-footer .brand { font-size: 16px; }
   .page-footer .brand-icon { width: 27px; height: 27px; }
   .page-footer nav { order: 2; width: 100%; margin: 0; gap: 24px; }
-  .page-footer > span { margin-left: auto; font-size: 9px; }
+  .page-footer-legal { margin-left: auto; font-size: 9px; }
   .policy-header-caption { display: none; }
   .policy-page .header-actions { margin-left: auto; }
   .policy-home.apron-button { font-size: 11px; height: 34px; padding-inline: 13px; gap: 5px; }
