@@ -351,15 +351,20 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
 .friends .friend-icon { width: 42px; height: 42px; flex-shrink: 0; object-fit: contain; border-radius: 10px; background: #FFFFFF; }
 .friends a:hover { color: var(--primary); }
 .friends .icon { font-size: 14px; color: var(--outline); }
-.page-footer { border-top: 1px solid var(--outline-variant); display: flex; align-items: center; gap: 22px; padding-block: 29px 36px; }
+.page-footer { border-top: 1px solid var(--outline-variant); display: grid; grid-template-columns: auto auto 1fr auto; grid-template-areas: "brand tagline nav copyright" "brand . . filings"; align-items: center; column-gap: 22px; row-gap: 4px; padding-block: 29px 36px; }
 .page-footer .brand { font-size: 17px; gap: 8px; }
+.page-footer .brand { grid-area: brand; }
 .page-footer .brand-icon { border-radius: 8px; }
-.page-footer > p { font-size: 10px; color: var(--outline); }
-.page-footer nav { margin-left: auto; display: flex; gap: 21px; font-size: 10px; color: var(--secondary); }
+.page-footer > p { grid-area: tagline; font-size: 10px; color: var(--outline); }
+.page-footer nav { grid-area: nav; justify-self: end; display: flex; gap: 21px; font-size: 10px; color: var(--secondary); }
 .page-footer nav a:hover { color: var(--primary); }
-.page-footer-legal { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; color: var(--outline); white-space: nowrap; }
-.page-footer-legal .filing-record { color: inherit; }
-.page-footer-legal .filing-record:hover { color: var(--primary); }
+.page-footer-legal { display: contents; }
+.page-footer-legal .copyright-record { grid-area: copyright; justify-self: end; font-size: 10px; color: var(--outline); white-space: nowrap; }
+.page-footer-legal .filing-records { grid-area: filings; justify-self: end; display: inline-flex; align-items: center; gap: 10px; font-size: 10px; color: var(--outline); white-space: nowrap; }
+.page-footer-legal .filing-record, .page-footer-legal .public-security-record { color: inherit; }
+.page-footer-legal .filing-record:hover, .page-footer-legal .public-security-record:hover { color: var(--primary); }
+.page-footer-legal .public-security-record { display: inline-flex; align-items: center; gap: 4px; }
+.page-footer-legal .public-security-icon { width: 14px; height: 16px; flex: none; object-fit: contain; }
 
 /* Privacy policies share the site's colors, navigation and typography. */
 .policy-header-caption { margin-right: auto; border-left: 1px solid var(--outline-variant); padding-left: 24px; color: var(--secondary); font-size: 12px; }
@@ -634,11 +639,11 @@ h2 { font-size: 34px; line-height: 1.42; letter-spacing: -.035em; font-weight: 6
   .friends > span { width: 100%; font-size: 10px; }
   .friends a { font-size: 11px; gap: 8px; }
   .friends .friend-icon { width: 36px; height: 36px; border-radius: 9px; }
-  .page-footer { flex-wrap: wrap; gap: 17px 16px; padding-block: 24px 28px; }
+  .page-footer { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "brand nav copyright" "filings filings filings"; column-gap: 12px; row-gap: 17px; padding-block: 24px 28px; }
   .page-footer .brand { font-size: 16px; }
   .page-footer .brand-icon { width: 27px; height: 27px; }
-  .page-footer nav { order: 2; width: 100%; margin: 0; gap: 24px; }
-  .page-footer-legal { margin-left: auto; font-size: 9px; }
+  .page-footer nav { justify-self: end; justify-content: flex-end; flex-wrap: wrap; gap: 8px 12px; }
+  .page-footer-legal .copyright-record, .page-footer-legal .filing-records { font-size: 9px; }
   .policy-header-caption { display: none; }
   .policy-page .header-actions { margin-left: auto; }
   .policy-home.apron-button { font-size: 11px; height: 34px; padding-inline: 13px; gap: 5px; }
