@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrafArch Android 應用程式最終使用者授權條款：讀卡授權、結果核對、檔案分享與第三方授權。">
+  <meta name="theme-color" content="#F3F7FB" id="meta-theme">
+  <title>最終使用者授權條款 — TrafArch</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="assets/fonts/harmonyos-sans/wght.css">
+  <link rel="stylesheet" href="assets/vendor/apron-design/index.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try {
+      var theme = localStorage.getItem('trafarch-theme') || localStorage.getItem('trafarch-apron-theme');
+      document.documentElement.dataset.theme = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+  </script>
+  <script src="i18n.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="policy-page">
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <header class="page-header"><div class="wrap header-inner">
+    <a class="brand" href="./" aria-label="TrafArch 首頁"><img class="brand-icon" src="assets/app-icon.png" alt="" width="36" height="36"><span>TrafArch</span></a>
+    <span class="policy-header-caption">軟體授權</span>
+    <div class="header-actions">
+      <a class="apron-button apron-button--default apron-button--md policy-home" href="./" aria-label="返回首頁"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg><span>返回首頁</span></a>
+      <div class="language-switcher">
+        <button class="icon-button" id="language-toggle" type="button" aria-label="切換語言" aria-controls="language-menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M9 3v2m4 0c-1 5-4 8-9 10m2-7c1 3 4 5 7 7m0 6 4-10 4 10m-7-3h6"/></svg></button>
+        <nav class="language-menu" id="language-menu" aria-label="切換語言" hidden>
+          <a href="eula.html" lang="zh-CN" hreflang="zh-CN">简体中文<span class="icon" aria-hidden="true">check</span></a>
+          <a href="eula-zh-Hant.html" lang="zh-Hant" hreflang="zh-Hant" aria-current="true">繁體中文<span class="icon" aria-hidden="true">check</span></a>
+          <a href="eula-en.html" lang="en-US" hreflang="en-US">English (US)<span class="icon" aria-hidden="true">check</span></a>
+        </nav>
+      </div>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="切換至深色模式"><span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span></button>
+    </div>
+  </div></header>
+  <main class="policy-main wrap" id="main">
+    <div class="policy-topline"><span class="policy-breadcrumb"><span class="icon" aria-hidden="true">description</span>軟體授權</span></div>
+    <header class="policy-title"><p class="section-label">TrafArch</p><h1>最終使用者授權條款</h1><p class="policy-meta">版本 1.1 · 修訂日期：2026 年 11 月 19 日</p></header>
+    <div class="policy-layout">
+      <aside class="policy-sidebar"><details class="policy-toc apron-card" open>
+        <summary><span>目錄</span><span class="icon" aria-hidden="true">expand_more</span></summary>
+        <nav aria-label="條款目錄"><ol>
+          <li><a href="#license">您可以如何使用 TrafArch</a></li>
+          <li><a href="#authorized-use">讀卡與乘車碼的授權範圍</a></li>
+          <li><a href="#results">如何解讀讀取結果</a></li>
+          <li><a href="#records">儲存、匯出與分享</a></li>
+          <li><a href="#third-party">第三方軟體與參考資料</a></li>
+          <li><a href="#updates">應用程式與參考資料更新</a></li>
+          <li><a href="#changes">條款變更與停止使用</a></li>
+          <li><a href="#contact">您的權利與聯絡方式</a></li>
+        </ol></nav>
+      </details></aside>
+      <article class="policy-document" aria-label="最終使用者授權條款">
+        <div class="policy-overview"><p>本條款約定您如何使用由 kajolno 與 TrafArch 專案維護者（「我們」）提供的 TrafArch Android 應用程式（套件名稱：com.kajolno.TrafArch）。請在決定是否接受前閱讀，您可以儲存本頁副本。<strong>本條款自您明確接受時對您生效；僅瀏覽本頁或下載 APK 不表示接受。</strong>若不接受，請勿依本條款使用應用程式。如果您是未成年人，請在監護人指導下閱讀，並在依法需要時取得其同意。</p>
+          <div class="policy-intro"><p><strong>TrafArch 只讀卡，不寫卡。</strong>請只讀取您本人或獲准讀取的卡片與乘車碼。應用程式顯示的餘額與行程並非官方憑證；分享日誌或備份前，請先檢查其中是否含有他人資料。</p></div>
+        </div>
+        <section aria-labelledby="license"><h2 id="license">一、您可以如何使用 TrafArch</h2>
+          <p>在遵守本條款的前提下，我們授予您非專屬的軟體使用權。您可以在自己擁有或獲准使用的 Android 裝置上安裝並執行 TrafArch，查看支援的卡片與乘車碼，儲存、備份或匯出有權處理的紀錄。這是軟體授權，不轉讓軟體著作權，也不授予存取特定卡片或動用卡內款項的權利。</p></section>
+        <section aria-labelledby="authorized-use"><h2 id="authorized-use">二、讀卡與乘車碼的授權範圍</h2>
+          <p>讀得到資料，不代表有權讀取、儲存或公開。替他人查詢餘額前，請先取得授權，不要將對方的行程另作他用。不得利用本應用程式追蹤他人、規避存取控制、偽造卡片或票證，或冒充持卡人。TrafArch 不提供加值、支付、扣款、寫卡或代為乘車的功能。</p></section>
+        <section aria-labelledby="results"><h2 id="results">三、如何解讀讀取結果</h2>
+          <p>可讀取的內容取決於卡種、發行批次、裝置及卡內尚存的紀錄。路線與站名來自參考資料比對；進出站配對、部分日期及餘額顯示可能包含推估。找不到出站紀錄不一定表示您仍在乘車，預覽中的模擬行程也不是實際交易。</p>
+          <p><strong>如果餘額、扣款或行程有爭議，請向發卡機構或運輸業者核對。</strong>TrafArch 不是業者的官方帳單、乘車憑證或退款管道。測試版本不保證支援每張卡，也不保證歷史紀錄完整。</p></section>
+        <section aria-labelledby="records"><h2 id="records">四、儲存、匯出與分享</h2>
+          <p>核心讀卡、解析與檔案管理在本機完成。即使畫面只顯示卡號末幾碼，完整 JSON 備份或原始通訊日誌也可能包含完整卡號、餘額與行程軌跡。反映單筆交易問題時，請優先選擇必要欄位匯出，或提供已遮蔽識別資料的截圖，不要在公開群組張貼完整備份。</p>
+          <p>清除應用程式資料或解除安裝前，請先備份希望保留的檔案。刪除本機檔案不會一併刪除匯出檔案、系統備份或他人已收到的副本。<strong>接受軟體授權不代表同意非必要的使用情況統計，也不取代依法需要的個別同意。</strong>關於 SDK 連線、系統備份、裝置權限與行使個人資料權利的方式，請參閱<a href="privacy-zh-Hant.html">隱私政策</a>。</p></section>
+        <section aria-labelledby="third-party"><h2 id="third-party">五、第三方軟體與參考資料</h2>
+          <p>本條款授予的是應用程式使用權，不是重新散布整個專案或授予再授權的許可。程式碼、資料或素材另有授權時，該部分以其授權為準，本條款不減損其授予的權利。應用程式「關於」中的授權與致謝列有元件及資料來源。例如，部分路線與站點資料整理自 <a href="https://github.com/domosekai/tripreader-data">domosekai</a> 與 <a href="https://github.com/HaoTian22/tripreader-data">HaoTian22</a> 的資料集；再散布其中適用 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 的資料時，請保留署名與授權連結，並註明您所作的修改。此授權不會自動適用於整個應用程式。顯示發卡機構或路線名稱不表示其為 TrafArch 背書。</p>
+          <p>開啟意見回饋表單或交流群組後，您向該平台提交的內容也受其規則約束。請勿傳送仍可使用的乘車碼或未遮蔽識別資料的日誌。使用第三方服務不免除我們對所收到的資料及所整合元件依法應負的責任。</p></section>
+        <section aria-labelledby="updates"><h2 id="updates">六、應用程式與參考資料更新</h2>
+          <p>設有更新網址的版本可能在啟動時連線檢查版本。檢查版本不等於安裝新版；請透過專案發布頁或您信任的管道取得安裝檔。路線與站點參考資料可獨立於應用程式更新。新資料可能使同一卡內編碼顯示為不同站名，但不會改寫實體卡上的交易。</p></section>
+        <section aria-labelledby="changes"><h2 id="changes">七、條款變更與停止使用</h2>
+          <p>我們會在本頁標示修訂日期，並就影響使用權利的重大變更作出提示；依法需要重新取得同意時，會另行徵求。您可隨時停止使用並解除安裝本應用程式，以終止本條款授予的軟體使用權。停止使用不影響您依法處理已匯出紀錄的權利。</p></section>
+        <section aria-labelledby="contact"><h2 id="contact">八、您的權利與聯絡方式</h2>
+          <p>若爭議涉及應用程式的解析錯誤或本條款，而非發卡機構的帳務，您可直接聯絡我們。協商並非必要程序，不影響您依法申訴或向有管轄權的法院起訴。爭議的準據法依法認定；本條款不排除您居住地適用的強制性保障。</p>
+          <p>本條款不排除或限制適用法律賦予您的消費者權利、個人資料權利，或我們依法不得免除的責任。如對授權或使用範圍有疑問，請聯絡 <a href="mailto:support@trafarch.top">support@trafarch.top</a>；說明使用情境和應用程式版本即可，無須附上完整卡號或日誌。</p></section>
+      </article>
+    </div>
+  </main>
+  <footer class="page-footer wrap">
+    <a class="brand" href="./"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a><p>讀懂交通卡，留住每次出行</p>
+    <div class="page-footer-legal"><div class="page-footer-meta-top"><nav aria-label="頁尾導覽"><a href="./">返回首頁</a><a href="privacy-zh-Hant.html">隱私政策</a></nav><span class="copyright-record">© <span id="year">2026</span> TrafArch</span></div>
+      <span class="filing-records"><a class="public-security-record" href="https://beian.mps.gov.cn/#/query/webSearch?code=35018102240249" rel="noreferrer" target="_blank"><img class="public-security-icon" src="assets/public-security-filing.png" alt="" width="14" height="16"><span>闽公网安备35018102240249号</span></a><a class="filing-record" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">闽ICP备2026045944号-1</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -22,6 +22,8 @@
     ["切换语言", "切換語言", "Change language"],
     ["移动导航", "行動版導覽", "Mobile navigation"],
     ["隐私政策", "隱私政策", "Privacy policy"],
+    ["最终用户许可协议", "最終使用者授權條款", "End user license agreement"],
+    ["查看许可协议", "查看授權條款", "Read the license agreement"],
     ["让交通卡里的信息，清晰可见", "讓交通卡裡的資訊，清晰可見", "Your transit card, clearly explained"],
     ["读懂交通卡，", "讀懂交通卡，", "Read your transit cards."],
     ["留住", "留住", "Keep "],
@@ -73,7 +75,7 @@
     ["贴卡即读", "靠卡即讀", "Tap to read"],
     ["行程一目了然", "行程一目瞭然", "Trips at a glance"],
     ["档案保存在本机", "存檔保存在本機", "Saved on your device"],
-    ["开源，持续完善", "開源，持續完善", "Open source, always improving"],
+    ["源码公开，持续完善", "原始碼公開，持續完善", "Public source code, under active development"],
     ["01 / 功能一览", "01 / 功能一覽", "01 / Features"],
     ["不止于读卡，", "不止於讀卡，", "Read your cards."],
     ["也为每一次出行留档。", "也為每一次出行留檔。", "Keep every journey."],
@@ -223,7 +225,7 @@
 
   var locales = ["zh-CN", "zh-Hant", "en-US"];
   var catalog = new Map(messages.map(function (entry) { return [entry[0], entry]; }));
-  var policyPages = { "zh-CN": "privacy.html", "zh-Hant": "privacy-zh-Hant.html", "en-US": "privacy-en.html" };
+  var documentSuffix = { "zh-CN": ".html", "zh-Hant": "-zh-Hant.html", "en-US": "-en.html" };
   var root = document.documentElement;
   var isPolicy = document.body.classList.contains("policy-page");
   var languageKey = "trafarch-language";
@@ -290,13 +292,13 @@
 
   function updateLinks() {
     document.querySelectorAll('a[href]').forEach(function (link) {
-      if (link.closest("#language-menu")) return;
+      if (link.closest("#language-menu") || link.getAttribute("href").charAt(0) === "#") return;
       var url = new URL(link.href, location.href);
       if (url.origin !== location.origin) return;
-      if (/\/privacy(?:-en|-zh-Hant)?\.html$/.test(url.pathname)) {
-        url.pathname = url.pathname.replace(/[^/]+$/, policyPages[language]);
+      if (/\/(privacy|eula)(?:-en|-zh-Hant)?\.html$/.test(url.pathname)) {
+        url.pathname = url.pathname.replace(/(privacy|eula)(?:-en|-zh-Hant)?\.html$/, "$1" + documentSuffix[language]);
         link.href = url.pathname + url.search + url.hash;
-      } else if (link.getAttribute("href").charAt(0) !== "#" && /\/(?:index\.html|apron-preview\.html)?$/.test(url.pathname)) {
+      } else if (/\/(?:index\.html|apron-preview\.html)?$/.test(url.pathname)) {
         link.href = localizedUrl(url.href, language);
       }
     });
@@ -305,7 +307,7 @@
       if (target === language) link.setAttribute("aria-current", "true");
       else link.removeAttribute("aria-current");
       if (isPolicy) {
-        var url = new URL(policyPages[target], location.href);
+        var url = new URL(link.href, location.href);
         url.search = location.search;
         url.hash = location.hash;
         link.href = url.pathname + url.search + url.hash;
