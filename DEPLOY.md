@@ -47,6 +47,39 @@ ssh -6 -i .\git.pem -o IdentitiesOnly=yes root@2402:4e00:c032:6e00:7400:253a:862
 
 远端脚本先把当前站点备份到 `/opt/trafarch/backups/`，然后更新 `/opt/trafarch/site`。由于这是 Docker 的目录挂载，通常无需重启容器。脚本会替换站点目录下的全部内容，请不要在该目录存放需要单独保留的服务器文件。部署期间文件逐个复制，访问可能短暂受到影响。
 
+## 启用自定义 404（首次部署时配置一次）
+
+先随站点部署 `404.html`。在宿主机 `/opt/trafarch/nginx/default.conf` 的 `server { ... }` 中加入以下配置，与现有 `location /` 同级；保留原有的无后缀规则和 `try_files $uri $uri.html $uri/ =404;`。
+
+```nginx
+error_page 404 /404.html;
+
+location = /404.html {
+    internal;
+    root /usr/share/nginx/html;
+}
+
+location = /404 {
+    return 404;
+}
+```
+
+`error_page` 在服务器内部读取页面，不把浏览器重定向到 `/404.html`；访问不存在的网址仍返回 HTTP 404。`/404` 本身也返回 404，而不是被无后缀规则当成成功页面。
+
+目前只有网页目录被挂载。先备份容器内正在使用的配置，再应用并检查：
+
+```sh
+docker cp trafarch-web:/etc/nginx/conf.d/default.conf /opt/trafarch/nginx/default.conf.before-404
+docker cp /opt/trafarch/nginx/default.conf trafarch-web:/etc/nginx/conf.d/default.conf &&
+  docker exec trafarch-web nginx -t && docker exec trafarch-web nginx -s reload
+```
+
+如果检查失败，把 `default.conf.before-404` 复制回容器后再修改。以后若将配置文件直接挂载到容器，只需修改宿主机文件、检查并重载，不再需要 `docker cp`。
+
+用浏览器访问 `/missing/test-page?lang=en-US`，应显示英文车票、保留原网址，并能正常返回首页或进入下载页。用 `curl -I 'https://你的域名/missing/test-page'` 确认状态码是 `404`，不是 `200` 或重定向。
+
+## 回滚站点文件
+
 如果部署后需要回滚，先从部署输出找到备份目录，再在服务器执行（把路径换成实际输出）：
 
 ```sh

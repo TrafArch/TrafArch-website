@@ -469,8 +469,12 @@ h2 span { display: block; }
 .pass-stub img { border-radius: 16px; margin-bottom: 7px; }
 .pass-stub strong { font-size: 18px; letter-spacing: -.02em; }
 
-.download-page { min-height: 100vh; display: flex; flex-direction: column; }
-.download-page .header-actions { margin-left: auto; }
+.download-page, .not-found-page { min-height: 100vh; display: flex; flex-direction: column; }
+.download-page .header-actions, .not-found-page .header-actions { margin-left: auto; }
+.not-found-main { flex: 1; display: grid; align-content: center; max-width: 1040px; padding-block: clamp(32px, 7vw, 88px); }
+.not-found-main h1 { margin-block: 14px; font-size: clamp(32px, 4vw, 52px); word-break: normal; }
+.not-found-main h1 + p { max-width: 38em; }
+.ticket-number { font-size: clamp(46px, 7vw, 84px); font-weight: 650; line-height: 1; letter-spacing: -.06em; }
 .download-hub { flex: 1; max-width: 980px; padding-block: clamp(40px, 7vw, 88px); }
 .download-intro { margin-bottom: 32px; }
 .channel-label { display: flex; align-items: center; gap: 10px; color: var(--accent-strong); font-size: 13px; font-weight: 600; }

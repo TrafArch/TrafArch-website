@@ -22,7 +22,7 @@
     themeIcon.textContent = dark ? "light_mode" : "dark_mode";
     themeColor.content = dark ? "#131A24" : "#F3F7FB";
     document.querySelectorAll(".brand-icon").forEach(function (image) {
-      image.src = dark ? "assets/app-icon-dark.png" : "assets/app-icon.png";
+      image.src = new URL(dark ? "app-icon-dark.png" : "app-icon.png", image.src).href;
     });
     if (persist) {
       try { localStorage.setItem(themeKey, theme); } catch (error) { /* Theme remains usable without storage. */ }
