@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F3F7FB" id="meta-theme">
+  <title>400 · 请求无效 — TrafArch</title>
+  <base href="/">
+  <script>
+    if (location.protocol === 'file:') document.querySelector('base').removeAttribute('href');
+    window.addEventListener('trafarch:languagechange', function () {
+      document.querySelector('.skip-link').href = new URL('#main', location.href).href;
+    });
+    try {
+      var theme = localStorage.getItem('trafarch-theme') || localStorage.getItem('trafarch-apron-theme');
+      document.documentElement.dataset.theme = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+  </script>
+  <link rel="icon" type="image/png" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="assets/fonts/harmonyos-sans/wght.css">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/json" id="page-messages">[["400 · 请求无效 — TrafArch","400 · 請求無效 — TrafArch","400 · Bad request — TrafArch"],["400 · 请求无效","400 · 請求無效","400 · Bad request"],["服务器没能读懂这次请求","伺服器無法讀取這次請求","We couldn’t read this request"],["请检查网址是否完整，或从首页重新打开要访问的页面。","請檢查網址是否完整，或從首頁重新開啟要造訪的頁面。","Check that the address is complete, or find the page again from the homepage."]]</script>
+  <script src="i18n.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="error-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="page-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="TrafArch 首页"><img class="brand-icon" src="assets/app-icon.png" alt="" width="34" height="34"><span>TrafArch</span></a>
+      <div class="header-actions">
+        <div class="language-switcher">
+          <button class="icon-button" id="language-toggle" type="button" aria-label="切换语言" aria-controls="language-menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M9 3v2m4 0c-1 5-4 8-9 10m2-7c1 3 4 5 7 7m0 6 4-10 4 10m-7-3h6"/></svg></button>
+          <nav class="language-menu" id="language-menu" aria-label="切换语言" hidden>
+            <a href="?lang=zh-CN" lang="zh-CN" hreflang="zh-CN" aria-current="true">简体中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="?lang=zh-Hant" lang="zh-Hant" hreflang="zh-Hant">繁體中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="?lang=en-US" lang="en-US" hreflang="en-US">English (US)<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+          </nav>
+        </div>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换到深色模式"><span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="error-main wrap" id="main">
+    <section class="boarding-pass" aria-labelledby="error-title">
+      <div class="pass-main">
+        <p class="pass-label">400 · 请求无效</p>
+        <h1 id="error-title">服务器没能读懂这次请求</h1>
+        <p>请检查网址是否完整，或从首页重新打开要访问的页面。</p>
+        <div class="download-actions">
+          <a class="btn btn--primary btn--lg" href="index.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>返回首页</a>
+          <a class="btn btn--ghost btn--lg" href="download.html"><span class="icon" aria-hidden="true">download</span>下载应用</a>
+        </div>
+      </div>
+      <div class="pass-stub" aria-hidden="true">
+        <span class="ticket-number">400</span>
+        <svg width="128" height="24" viewBox="0 0 128 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 12h35m10 0h12m10 0h33"/><circle cx="8" cy="12" r="4"/><circle cx="116" cy="12" r="4" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer wrap">
+    <a class="brand" href="index.html"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a>
+    <p>读懂交通卡，留住每次出行</p>
+    <div class="page-footer-legal">
+      <div class="page-footer-meta-top"><nav aria-label="页脚导航"><a href="privacy.html">隐私政策</a><a href="eula.html">最终用户许可协议</a><a href="https://qm.qq.com/q/4eJoKq42R2" target="_blank" rel="noopener noreferrer">反馈群</a></nav><span class="copyright-record">© <span id="year">2026</span> TrafArch</span></div>
+      <span class="filing-records"><a class="public-security-record" href="https://beian.mps.gov.cn/#/query/webSearch?code=35018102240249" rel="noreferrer" target="_blank"><img class="public-security-icon" src="assets/public-security-filing.png" alt="" width="14" height="16"><span>闽公网安备35018102240249号</span></a><a class="filing-record" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">闽ICP备2026045944号-1</a></span>
+    </div>
+  </footer>
+</body>
+</html>

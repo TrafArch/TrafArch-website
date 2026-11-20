@@ -23,10 +23,11 @@
   <link rel="icon" type="image/png" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="assets/fonts/harmonyos-sans/wght.css">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/json" id="page-messages">[["404 · 页面未找到 — TrafArch","404 · 找不到頁面 — TrafArch","404 · Page not found — TrafArch"],["404 · 页面未找到","404 · 找不到頁面","404 · Page not found"],["没有找到这一站","找不到這一站","This stop isn’t on the map"],["这个网址没有对应的页面。你可以回到首页，或直接前往下载页。","這個網址沒有對應的頁面。你可以回到首頁，或直接前往下載頁面。","There’s no page at this address. Head back home or go straight to the download page."]]</script>
   <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body class="not-found-page">
+<body class="error-page">
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="page-header">
     <div class="wrap header-inner">
@@ -45,15 +46,15 @@
     </div>
   </header>
 
-  <main class="not-found-main wrap" id="main">
-    <section class="boarding-pass" aria-labelledby="not-found-title">
+  <main class="error-main wrap" id="main">
+    <section class="boarding-pass" aria-labelledby="error-title">
       <div class="pass-main">
         <p class="pass-label">404 · 页面未找到</p>
-        <h1 id="not-found-title">没有找到这一站</h1>
+        <h1 id="error-title">没有找到这一站</h1>
         <p>这个网址没有对应的页面。你可以回到首页，或直接前往下载页。</p>
         <div class="download-actions">
           <a class="btn btn--primary btn--lg" href="index.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg>返回首页</a>
-          <a class="btn btn--primary btn--lg" href="download.html">下载应用<span class="icon" aria-hidden="true">download</span></a>
+          <a class="btn btn--ghost btn--lg" href="download.html"><span class="icon" aria-hidden="true">download</span>下载应用</a>
         </div>
       </div>
       <div class="pass-stub" aria-hidden="true">

@@ -47,36 +47,32 @@ ssh -6 -i .\git.pem -o IdentitiesOnly=yes root@2402:4e00:c032:6e00:7400:253a:862
 
 远端脚本先把当前站点备份到 `/opt/trafarch/backups/`，然后更新 `/opt/trafarch/site`。由于这是 Docker 的目录挂载，通常无需重启容器。脚本会替换站点目录下的全部内容，请不要在该目录存放需要单独保留的服务器文件。部署期间文件逐个复制，访问可能短暂受到影响。
 
-## 启用自定义 404（首次部署时配置一次）
+## 启用常见 HTTP 错误页
 
-先随站点部署 `404.html`。在宿主机 `/opt/trafarch/nginx/default.conf` 的 `server { ... }` 中加入以下配置，与现有 `location /` 同级；保留原有的无后缀规则和 `try_files $uri $uri.html $uri/ =404;`。
+站点根目录的数字 HTML 文件是可直接部署的静态页面，无需 Node.js 或 JavaScript 就能显示错误说明。支持 `400、401、403、404、405、408、409、410、413、414、415、422、429、431、500、501、502、503、504`。样式沿用 404 车票；开启 JavaScript 后支持简中、繁中、英文和主题切换。
+
+修改共用页面结构时编辑 `scripts/error-pages/template.html`，修改错误码或三语文案时编辑同目录的 `messages.json`。运行 `node scripts/error-pages/generate.mjs` 更新所有数字 HTML 和 `nginx-errors.conf`；运行 `node scripts/error-pages/generate.mjs --check` 检查是否同步。将生成物一并提交，再随站点部署。
+
+**首次启用或从单独的 404 配置升级：** 先部署网页文件。将 `scripts/error-pages/nginx-errors.conf` 单独传到宿主机的 `/opt/trafarch/nginx/nginx-errors.conf`（此配置不在网站发布包中）。在宿主机 `/opt/trafarch/nginx/default.conf` 的 `server { ... }` 中，用下面这行替换旧的 `error_page 404`、`location = /404.html` 和 `location = /404`。放在通用的 `.html` 正则重写规则之前，保留站点原有的 `location /` 和 `try_files $uri $uri.html $uri/ =404;`。
 
 ```nginx
-error_page 404 /404.html;
-
-location = /404.html {
-    internal;
-    root /usr/share/nginx/html;
-}
-
-location = /404 {
-    return 404;
-}
+include /etc/nginx/trafarch-errors.conf;
 ```
 
-`error_page` 在服务器内部读取页面，不把浏览器重定向到 `/404.html`；访问不存在的网址仍返回 HTTP 404。`/404` 本身也返回 404，而不是被无后缀规则当成成功页面。
+配置通过内部请求读取对应 HTML，不重定向，也不把错误改为 `200`。`/503` 等数字短路径可用于预览，对应 HTML 是内部资源。若有反向代理，仅在提供网页的 `proxy_pass` 位置按需启用 `proxy_intercept_errors on;`，不要拦截需要返回 JSON 的 API。外部 CDN、浏览器或已停机的 Nginx 产生的错误不能由本站页面接管。
 
-目前只有网页目录被挂载。先备份容器内正在使用的配置，再应用并检查：
+目前只有网页目录被挂载。在宿主机保留容器正在使用的配置，再复制文件、检查并重载：
 
 ```sh
-docker cp trafarch-web:/etc/nginx/conf.d/default.conf /opt/trafarch/nginx/default.conf.before-404
+docker cp trafarch-web:/etc/nginx/conf.d/default.conf /opt/trafarch/nginx/default.conf.before-errors
+docker cp /opt/trafarch/nginx/nginx-errors.conf trafarch-web:/etc/nginx/trafarch-errors.conf &&
 docker cp /opt/trafarch/nginx/default.conf trafarch-web:/etc/nginx/conf.d/default.conf &&
   docker exec trafarch-web nginx -t && docker exec trafarch-web nginx -s reload
 ```
 
-如果检查失败，把 `default.conf.before-404` 复制回容器后再修改。以后若将配置文件直接挂载到容器，只需修改宿主机文件、检查并重载，不再需要 `docker cp`。
+如果检查失败，不要重载；把 `default.conf.before-errors` 复制回容器后再修改。重建容器后也要重新复制两个配置文件，或将它们挂载到对应位置。仅改文案无需重载 Nginx。
 
-用浏览器访问 `/missing/test-page?lang=en-US`，应显示英文车票、保留原网址，并能正常返回首页或进入下载页。用 `curl -I 'https://你的域名/missing/test-page'` 确认状态码是 `404`，不是 `200` 或重定向。
+用浏览器访问 `/missing/test-page?lang=en-US` 和 `/503?lang=zh-Hant`，应分别显示英文 404 和繁中 503 车票，保留原网址，并能正常返回首页或进入下载页。用 `curl -I 'https://你的域名/missing/test-page'` 和 `curl -I 'https://你的域名/503'` 检查响应码分别是 `404`、`503`。
 
 ## 回滚站点文件
 

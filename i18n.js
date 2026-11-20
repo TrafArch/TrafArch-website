@@ -19,10 +19,6 @@
     ["下载应用", "下載應用程式", "Download"],
     ["下载 TrafArch", "下載 TrafArch", "Download TrafArch"],
     ["返回首页", "返回首頁", "Back to home"],
-    ["404 · 页面未找到 — TrafArch", "404 · 找不到頁面 — TrafArch", "404 · Page not found — TrafArch"],
-    ["404 · 页面未找到", "404 · 找不到頁面", "404 · Page not found"],
-    ["没有找到这一站", "找不到這一站", "This stop isn’t on the map"],
-    ["这个网址没有对应的页面。你可以回到首页，或直接前往下载页。", "這個網址沒有對應的頁面。你可以回到首頁，或直接前往下載頁面。", "There’s no page at this address. Head back home or go straight to the download page."],
     ["应用商店", "應用程式商店", "App store"],
     ["通过 Google Play 安装", "透過 Google Play 安裝", "Install with Google Play"],
     ["由 Google Play 管理安装和后续更新。", "由 Google Play 管理安裝和後續更新。", "Let Google Play install the app and manage updates."],
@@ -236,6 +232,8 @@
   ];
 
   var locales = ["zh-CN", "zh-Hant", "en-US"];
+  var pageMessages = document.getElementById("page-messages");
+  if (pageMessages) messages = messages.concat(JSON.parse(pageMessages.textContent));
   var catalog = new Map(messages.map(function (entry) { return [entry[0], entry]; }));
   var documentSuffix = { "zh-CN": ".html", "zh-Hant": "-zh-Hant.html", "en-US": "-en.html" };
   var root = document.documentElement;

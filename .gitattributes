@@ -1,1 +1,2 @@
 scripts/deploy-remote.sh text eol=lf
+scripts/error-pages export-ignore

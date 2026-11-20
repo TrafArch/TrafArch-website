@@ -1,0 +1,97 @@
+{
+  "400": [
+    ["请求无效", "請求無效", "Bad request"],
+    ["服务器没能读懂这次请求", "伺服器無法讀取這次請求", "We couldn’t read this request"],
+    ["请检查网址是否完整，或从首页重新打开要访问的页面。", "請檢查網址是否完整，或從首頁重新開啟要造訪的頁面。", "Check that the address is complete, or find the page again from the homepage."]
+  ],
+  "401": [
+    ["需要身份验证", "需要身分驗證", "Authentication required"],
+    ["请先验证身份", "請先驗證身分", "Please sign in first"],
+    ["这个资源需要有效凭据。请按服务提供方的提示登录；如果已经登录，会话可能已过期。", "這項資源需要有效憑證。請依服務提供者的提示登入；若已登入，工作階段可能已過期。", "This resource requires valid credentials. Sign in with the service that provided the link. If you already signed in, your session may have expired."]
+  ],
+  "403": [
+    ["禁止访问", "禁止存取", "Forbidden"],
+    ["你没有进入这一站的权限", "你沒有進入這一站的權限", "This stop is off limits"],
+    ["服务器拒绝了这次访问。如果你应该能看到这个页面，请联系链接提供方确认权限。", "伺服器拒絕了這次存取。如果你應該能看到這個頁面，請聯絡連結提供者確認權限。", "The server denied access. If you should be able to view this page, ask the person who shared the link to check your permissions."]
+  ],
+  "404": [
+    ["页面未找到", "找不到頁面", "Page not found"],
+    ["没有找到这一站", "找不到這一站", "This stop isn’t on the map"],
+    ["这个网址没有对应的页面。你可以回到首页，或直接前往下载页。", "這個網址沒有對應的頁面。你可以回到首頁，或直接前往下載頁面。", "There’s no page at this address. Head back home or go straight to the download page."]
+  ],
+  "405": [
+    ["请求方式不受支持", "不支援這個請求方法", "Method not allowed"],
+    ["这个地址不接受这项操作", "這個位址不接受這項操作", "This action isn’t available here"],
+    ["如果你只是想浏览网页，请从首页打开链接。如果是在提交表单，请返回原页面确认提交入口。", "若只是想瀏覽網頁，請從首頁開啟連結。若正在送出表單，請回到原頁面確認送出位置。", "To read a page, follow a link from the homepage. If you were submitting a form, go back and check where it should be sent."]
+  ],
+  "408": [
+    ["请求超时", "請求逾時", "Request timeout"],
+    ["请求没能及时送达", "請求未能及時送達", "The request didn’t arrive in time"],
+    ["服务器没有及时收完请求。请检查网络连接，再重新打开页面。", "伺服器未能及時收完請求。請檢查網路連線，再重新開啟頁面。", "The server timed out waiting for the full request. Check your connection, then open the page again."]
+  ],
+  "409": [
+    ["请求冲突", "請求衝突", "Conflict"],
+    ["内容的状态已改变", "內容的狀態已改變", "The content has changed"],
+    ["这次操作与资源的当前状态冲突。请先保留未提交的内容，再查看最新版本。", "這項操作與資源的目前狀態衝突。請先保留尚未送出的內容，再查看最新版本。", "This action conflicts with the current state of the resource. Save any unsent changes before checking the latest version."]
+  ],
+  "410": [
+    ["资源已移除", "資源已移除", "Gone"],
+    ["这一站已不再开放", "這一站已不再開放", "This stop has closed"],
+    ["此内容已从这个地址移除。旧书签可能已失效，你可以从首页寻找替代内容。", "此內容已從這個位址移除。舊書籤可能已失效，你可以從首頁尋找替代內容。", "This content has been removed from this address. If you used a bookmark, look for a replacement on the homepage."]
+  ],
+  "413": [
+    ["请求内容过大", "請求內容過大", "Content too large"],
+    ["提交的内容超过了大小限制", "送出的內容超過大小限制", "The submission is too large"],
+    ["请缩小文件或减少一次提交的内容，再重新提交。", "請縮小檔案或減少一次送出的內容，再重新送出。", "Reduce the file size or send less content at once, then submit again."]
+  ],
+  "414": [
+    ["网址过长", "網址過長", "URI too long"],
+    ["这个链接太长了", "這個連結太長了", "This link is too long"],
+    ["服务器无法处理这么长的网址。请从首页重新打开目标页面，而不是继续使用这个链接。", "伺服器無法處理這麼長的網址。請從首頁重新開啟目標頁面，不要繼續使用這個連結。", "The address is longer than the server can process. Open the page from the homepage instead of reusing this link."]
+  ],
+  "415": [
+    ["不支持的媒体类型", "不支援的媒體類型", "Unsupported media type"],
+    ["服务器不接受这种格式", "伺服器不接受這種格式", "This format isn’t supported"],
+    ["请检查提交要求，将内容转换为支持的格式后再试；只更改文件名并不会转换格式。", "請檢查送出要求，將內容轉為支援的格式後再試；只更改檔名不會轉換格式。", "Check which formats are accepted and convert the content before trying again. Renaming a file does not change its format."]
+  ],
+  "422": [
+    ["无法处理内容", "無法處理內容", "Unprocessable content"],
+    ["请检查提交的内容", "請檢查送出的內容", "Check the submitted information"],
+    ["服务器读懂了格式，但无法处理其中的数据。请核对必填项、数值和日期后再提交。", "伺服器能讀取格式，但無法處理其中的資料。請核對必填欄位、數值與日期後再送出。", "The server understood the format but couldn’t process the data. Check required fields, values, and dates before submitting again."]
+  ],
+  "429": [
+    ["请求过于频繁", "請求過於頻繁", "Too many requests"],
+    ["请稍等片刻再访问", "請稍候再造訪", "Give it a moment"],
+    ["短时间内的请求已达到限制。请先停止刷新，等一会儿再打开页面。", "短時間內的請求已達上限。請先停止重新整理，稍後再開啟頁面。", "The request limit has been reached. Stop refreshing and wait a while before opening the page again."]
+  ],
+  "431": [
+    ["请求头过大", "請求標頭過大", "Request headers too large"],
+    ["请求附带的信息太多", "請求附帶的資訊太多", "The request headers are too large"],
+    ["本站的 Cookie 可能过大。可以先用无痕窗口打开同一地址；若能访问，再考虑清除本站的 Cookie。", "本站的 Cookie 可能過大。可先用無痕視窗開啟相同位址；若能存取，再考慮清除本站的 Cookie。", "A large cookie may be the cause. Try the address in a private window first. If that works, consider clearing cookies for this site only."]
+  ],
+  "500": [
+    ["服务器内部错误", "伺服器內部錯誤", "Internal server error"],
+    ["服务器遇到了意外情况", "伺服器遇到了意外狀況", "Something went wrong on the server"],
+    ["服务器没能完成这次请求。请稍后再访问；如果问题持续，请向维护者提供出错的网址和时间。", "伺服器未能完成這次請求。請稍後再造訪；若問題持續，請向維護者提供出錯的網址與時間。", "The server couldn’t finish this request. Try again later. If it keeps happening, tell the site maintainers the address and when it occurred."]
+  ],
+  "501": [
+    ["功能未实现", "功能尚未實作", "Not implemented"],
+    ["服务器还不支持这项功能", "伺服器尚未支援這項功能", "This feature isn’t available"],
+    ["当前服务无法执行这类请求。你可以从首页查看现有功能，或联系链接提供方确认。", "目前的服務無法執行這類請求。你可以從首頁查看現有功能，或聯絡連結提供者確認。", "The server does not implement this type of request. Check the homepage for available features or contact the person who shared the link."]
+  ],
+  "502": [
+    ["网关错误", "閘道錯誤", "Bad gateway"],
+    ["下一站没有正确回应", "下一站未正確回應", "The upstream service didn’t respond correctly"],
+    ["网关从上游服务收到了无效响应。这通常需要服务端恢复，请稍后再访问。", "閘道從上游服務收到了無效回應。這通常需要伺服器端恢復，請稍後再造訪。", "The gateway received an invalid response from an upstream service. Please try again later while the service recovers."]
+  ],
+  "503": [
+    ["服务暂不可用", "服務暫時無法使用", "Service unavailable"],
+    ["这一站暂时无法提供服务", "這一站暫時無法提供服務", "This stop is temporarily unavailable"],
+    ["服务器可能正在维护或繁忙。无需更改设备设置，请稍后再来。", "伺服器可能正在維護或忙碌中。無須更改裝置設定，請稍後再來。", "The server may be busy or undergoing maintenance. There’s no need to change your device settings; please come back later."]
+  ],
+  "504": [
+    ["网关超时", "閘道逾時", "Gateway timeout"],
+    ["下一站未能及时回应", "下一站未能及時回應", "The upstream service took too long"],
+    ["网关等待上游服务时超时。请稍后再访问；如果刚刚提交过操作，请先确认结果，避免重复提交。", "閘道等候上游服務時逾時。請稍後再造訪；若剛剛送出過操作，請先確認結果，避免重複送出。", "The gateway timed out waiting for an upstream service. Try again later. If you just submitted something, check the result before sending it again."]
+  ]
+}
