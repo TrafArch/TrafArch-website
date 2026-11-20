@@ -17,6 +17,15 @@
     ["切换到深色模式", "切換至深色模式", "Switch to dark mode"],
     ["切换到浅色模式", "切換至淺色模式", "Switch to light mode"],
     ["下载应用", "下載應用程式", "Download"],
+    ["下载 TrafArch", "下載 TrafArch", "Download TrafArch"],
+    ["返回首页", "返回首頁", "Back to home"],
+    ["应用商店", "應用程式商店", "App store"],
+    ["通过 Google Play 安装", "透過 Google Play 安裝", "Install with Google Play"],
+    ["由 Google Play 管理安装和后续更新。", "由 Google Play 管理安裝和後續更新。", "Let Google Play install the app and manage updates."],
+    ["在 Google Play 获取 TrafArch", "在 Google Play 取得 TrafArch", "Get TrafArch on Google Play"],
+    ["直接下载", "直接下載", "Direct download"],
+    ["手动安装 APK", "手動安裝 APK", "Install an APK"],
+    ["查看版本说明，选择适合设备的 APK。", "查看版本說明，選擇適合裝置的 APK。", "Read the release notes and choose the APK for your device."],
     ["打开菜单", "開啟選單", "Open menu"],
     ["关闭菜单", "關閉選單", "Close menu"],
     ["切换语言", "切換語言", "Change language"],
@@ -233,6 +242,7 @@
   var bindings = [];
   var languageButton = document.getElementById("language-toggle");
   var languageMenu = document.getElementById("language-menu");
+  var playBadge = document.getElementById("google-play-badge");
 
   function normalizeLanguage(value) {
     if (!value) return null;
@@ -298,7 +308,7 @@
       if (/\/(privacy|eula)(?:-en|-zh-Hant)?\.html$/.test(url.pathname)) {
         url.pathname = url.pathname.replace(/(privacy|eula)(?:-en|-zh-Hant)?\.html$/, "$1" + documentSuffix[language]);
         link.href = url.pathname + url.search + url.hash;
-      } else if (/\/(?:index\.html|apron-preview\.html)?$/.test(url.pathname)) {
+      } else if (/\/(?:index\.html|download\.html|apron-preview\.html)?$/.test(url.pathname)) {
         link.href = localizedUrl(url.href, language);
       }
     });
@@ -318,6 +328,7 @@
   function setLanguage(value, persist) {
     language = normalizeLanguage(value) || "zh-CN";
     root.lang = language;
+    if (playBadge) playBadge.src = "assets/google-play/" + language + ".svg";
     bindings.forEach(function (binding) {
       if (binding.attribute) binding.node.setAttribute(binding.attribute, t(binding.source));
       else binding.node.textContent = binding.original.replace(binding.source, function () { return t(binding.source); });

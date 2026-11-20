@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="读懂交通卡，留住每次出行">
+  <meta name="theme-color" content="#F3F7FB" id="meta-theme">
+  <title>下载 TrafArch</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="assets/fonts/harmonyos-sans/wght.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try {
+      var theme = localStorage.getItem('trafarch-theme') || localStorage.getItem('trafarch-apron-theme');
+      document.documentElement.dataset.theme = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+  </script>
+  <script src="i18n.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="download-page">
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-north-east" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    </defs>
+  </svg>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="page-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="TrafArch 首页"><img class="brand-icon" src="assets/app-icon.png" alt="" width="34" height="34"><span>TrafArch</span></a>
+      <div class="header-actions">
+        <a class="icon-button" href="index.html" aria-label="返回首页"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a>
+        <div class="language-switcher">
+          <button class="icon-button" id="language-toggle" type="button" aria-label="切换语言" aria-controls="language-menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M9 3v2m4 0c-1 5-4 8-9 10m2-7c1 3 4 5 7 7m0 6 4-10 4 10m-7-3h6"/></svg></button>
+          <nav class="language-menu" id="language-menu" aria-label="切换语言" hidden>
+            <a href="?lang=zh-CN" lang="zh-CN" hreflang="zh-CN" aria-current="true">简体中文<svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></a>
+            <a href="?lang=zh-Hant" lang="zh-Hant" hreflang="zh-Hant">繁體中文<svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></a>
+            <a href="?lang=en-US" lang="en-US" hreflang="en-US">English (US)<svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></a>
+          </nav>
+        </div>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换到深色模式"><span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="download-hub wrap" id="main">
+    <header class="download-intro">
+      <h1>下载 TrafArch</h1>
+      <p>读懂交通卡，留住每次出行</p>
+    </header>
+    <div class="download-channels">
+      <section class="download-store" aria-labelledby="store-title">
+        <p class="channel-label"><span aria-hidden="true">01</span>应用商店</p>
+        <h2 id="store-title">通过 Google Play 安装</h2>
+        <p>由 Google Play 管理安装和后续更新。</p>
+        <a class="play-link" href="https://play.google.com/store/apps/details?id=com.kajolno.TrafArch"><img id="google-play-badge" src="assets/google-play/zh-CN.svg" alt="在 Google Play 获取 TrafArch" width="189" height="56"></a>
+      </section>
+      <section class="download-apk" aria-labelledby="apk-title">
+        <p class="channel-label"><span aria-hidden="true">02</span>直接下载</p>
+        <h2 id="apk-title">手动安装 APK</h2>
+        <p>查看版本说明，选择适合设备的 APK。</p>
+        <div class="release-links">
+          <a href="https://github.com/TrafArch/TrafArch/releases">
+            <svg class="source-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub<svg class="icon" aria-hidden="true"><use href="#i-north-east"></use></svg>
+          </a>
+          <a href="https://codeberg.org/TrafArch/TrafArch/releases">
+            <svg class="source-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648zz"/></svg>
+            Codeberg<svg class="icon" aria-hidden="true"><use href="#i-north-east"></use></svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-footer wrap">
+    <a class="brand" href="index.html"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a>
+    <p>读懂交通卡，留住每次出行</p>
+    <div class="page-footer-legal">
+      <div class="page-footer-meta-top">
+        <nav aria-label="页脚导航"><a href="privacy.html">隐私政策</a><a href="eula.html">最终用户许可协议</a><a href="https://qm.qq.com/q/4eJoKq42R2" target="_blank" rel="noopener noreferrer">反馈群</a></nav>
+        <span class="copyright-record">© <span id="year">2026</span> TrafArch</span>
+      </div>
+      <span class="filing-records">
+        <a class="public-security-record" href="https://beian.mps.gov.cn/#/query/webSearch?code=35018102240249" rel="noreferrer" target="_blank"><img class="public-security-icon" src="assets/public-security-filing.png" alt="" width="14" height="16"><span>闽公网安备35018102240249号</span></a>
+        <a class="filing-record" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">闽ICP备2026045944号-1</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
