@@ -142,9 +142,45 @@
   }
 
   var hero = document.querySelector(".hero");
-  var railLayouts = Array.from(document.querySelectorAll(".rail-layout"));
   var revealObserver = null;
   var revealItems = [];
+
+  var tracks = Array.from(document.querySelectorAll(".rail-layout"));
+  if (tracks.length) {
+    var railMotion = window.matchMedia("(width > 980px) and (prefers-reduced-motion: no-preference)");
+    var railFrame = 0;
+    var furthestRailY = 0;
+
+    function updateRails() {
+      railFrame = 0;
+      if (!railMotion.matches) return;
+      var scrollTop = window.scrollY;
+      furthestRailY = Math.max(furthestRailY, scrollTop + window.innerHeight * .55);
+      var cursor = furthestRailY - scrollTop;
+      var fills = tracks.map(function (track) {
+        var bounds = track.getBoundingClientRect();
+        return Math.max(0, Math.min(bounds.height, cursor - bounds.top)) + "px";
+      });
+      tracks.forEach(function (track, index) {
+        if (track.style.getPropertyValue("--rail-cursor") !== fills[index]) track.style.setProperty("--rail-cursor", fills[index]);
+      });
+    }
+
+    function queueRailUpdate() {
+      if (!railFrame && railMotion.matches) railFrame = requestAnimationFrame(updateRails);
+    }
+
+    window.addEventListener("scroll", queueRailUpdate, { passive: true });
+    window.addEventListener("resize", queueRailUpdate);
+    window.addEventListener("pageshow", queueRailUpdate);
+    railMotion.addEventListener("change", queueRailUpdate);
+    if ("ResizeObserver" in window) {
+      var railResize = new ResizeObserver(queueRailUpdate);
+      tracks.forEach(function (track) { railResize.observe(track); });
+      railResize.observe(document.querySelector("main"));
+    }
+    updateRails();
+  }
 
   function revealItem(element) {
     element.classList.add("is-revealed");
@@ -152,15 +188,6 @@
   }
 
   if ("IntersectionObserver" in window) {
-    var railObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-rail-drawn");
-        railObserver.unobserve(entry.target);
-      });
-    }, { threshold: .12 });
-    railLayouts.forEach(function (layout) { railObserver.observe(layout); });
-
     if (hero) {
       var heroObserver = new IntersectionObserver(function (entries) {
         hero.classList.toggle("is-offscreen", !entries[0].isIntersecting);
