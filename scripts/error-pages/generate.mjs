@@ -29,8 +29,7 @@ for (const [code, [names, headings, descriptions]] of Object.entries(messages)) 
 
 const config = [
   ...codes.map(code => `error_page ${code} /${code}.html;`),
-  '', `location ~ ^/(?:${codes.join('|')})\\.html$ {`, '    internal;', '    root /usr/share/nginx/html;', '}', '',
-  ...codes.map(code => `location = /${code} { return ${code}; }`), ''
+  '', `location ~ ^/(?:${codes.join('|')})(?:\\.html)?$ {`, '    internal;', '    root /usr/share/nginx/html;', '}', ''
 ];
 output('nginx-errors.conf', config.join('\n'));
 console.log(`${check ? 'Verified' : 'Generated'} ${codes.length} error pages and the Nginx configuration.`);

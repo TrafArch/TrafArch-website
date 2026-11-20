@@ -59,7 +59,7 @@ ssh -6 -i .\git.pem -o IdentitiesOnly=yes root@2402:4e00:c032:6e00:7400:253a:862
 include /etc/nginx/trafarch-errors.conf;
 ```
 
-配置通过内部请求读取对应 HTML，不重定向，也不把错误改为 `200`。`/503` 等数字短路径可用于预览，对应 HTML 是内部资源。若有反向代理，仅在提供网页的 `proxy_pass` 位置按需启用 `proxy_intercept_errors on;`，不要拦截需要返回 JSON 的 API。外部 CDN、浏览器或已停机的 Nginx 产生的错误不能由本站页面接管。
+配置通过内部请求读取对应 HTML，不重定向，也不把错误改为 `200`。错误码短路径和对应 HTML 均为内部资源：访客直接输入 `/503` 或 `/503.html` 会看到 404，而真正的 503 仍显示 503 车票。要预览样式，在本地打开仓库中的 `503.html` 即可，不必开放线上测试地址。若有反向代理，仅在提供网页的 `proxy_pass` 位置按需启用 `proxy_intercept_errors on;`，不要拦截需要返回 JSON 的 API。外部 CDN、浏览器或已停机的 Nginx 产生的错误不能由本站页面接管。
 
 目前只有网页目录被挂载。在宿主机保留容器正在使用的配置，再复制文件、检查并重载：
 
@@ -72,7 +72,7 @@ docker cp /opt/trafarch/nginx/default.conf trafarch-web:/etc/nginx/conf.d/defaul
 
 如果检查失败，不要重载；把 `default.conf.before-errors` 复制回容器后再修改。重建容器后也要重新复制两个配置文件，或将它们挂载到对应位置。仅改文案无需重载 Nginx。
 
-用浏览器访问 `/missing/test-page?lang=en-US` 和 `/503?lang=zh-Hant`，应分别显示英文 404 和繁中 503 车票，保留原网址，并能正常返回首页或进入下载页。用 `curl -I 'https://你的域名/missing/test-page'` 和 `curl -I 'https://你的域名/503'` 检查响应码分别是 `404`、`503`。
+用浏览器访问 `/missing/test-page?lang=en-US`，应显示英文 404 车票并保留原网址。用 `curl -I 'https://你的域名/503'` 和 `curl -I 'https://你的域名/503.html'` 确认两者都返回 `404`。如果之前已启用数字预览地址，只需替换容器中的 `trafarch-errors.conf`、检查并重载，无需重新部署 HTML。
 
 ## 回滚站点文件
 
