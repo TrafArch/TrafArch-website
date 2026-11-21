@@ -26,6 +26,7 @@
     ["直接下载", "直接下載", "Direct download"],
     ["手动安装 APK", "手動安裝 APK", "Install an APK"],
     ["查看版本说明，选择适合设备的 APK。", "查看版本說明，選擇適合裝置的 APK。", "Read the release notes and choose the APK for your device."],
+    ["蓝奏云", "藍奏雲", "Lanzou Cloud"],
     ["打开菜单", "開啟選單", "Open menu"],
     ["关闭菜单", "關閉選單", "Close menu"],
     ["切换语言", "切換語言", "Change language"],
